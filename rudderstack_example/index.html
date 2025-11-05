@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Start RudderStack Snippet -->
+    <script type="text/javascript">
+    (function() {
+      "use strict";
+      window.RudderSnippetVersion = "3.2.0";
+      var identifier = "rudderanalytics";
+      if (!window[identifier]) {
+        window[identifier] = [];
+      }
+      var rudderanalytics = window[identifier];
+      if (Array.isArray(rudderanalytics)) {
+        if (rudderanalytics.snippetExecuted === true && window.console && console.error) {
+          console.error("RudderStack JavaScript SDK snippet included more than once.");
+        } else {
+          rudderanalytics.snippetExecuted = true;
+          window.rudderAnalyticsBuildType = "legacy";
+          var sdkBaseUrl = "https://cdn.rudderlabs.com";
+          var sdkVersion = "v3";
+          var sdkFileName = "rsa.min.js";
+          var scriptLoadingMode = "async";
+          var methods = [ "setDefaultInstanceKey", "load", "ready", "page", "track", "identify", "alias", "group", "reset", "setAnonymousId", "startSession", "endSession", "consent", "addCustomIntegration" ];
+          for (var i = 0; i < methods.length; i++) {
+            var method = methods[i];
+            rudderanalytics[method] = function(methodName) {
+              return function() {
+                if (Array.isArray(window[identifier])) {
+                  rudderanalytics.push([ methodName ].concat(Array.prototype.slice.call(arguments)));
+                } else {
+                  var _methodName;
+                  (_methodName = window[identifier][methodName]) === null || _methodName === undefined || _methodName.apply(window[identifier], arguments);
+                }
+              };
+            }(method);
+          }
+          try {
+            new Function('class Test{field=()=>{};test({prop=[]}={}){return prop?(prop?.property??[...prop]):import("");}}');
+            window.rudderAnalyticsBuildType = "modern";
+          } catch (e) {}
+          var head = document.head || document.getElementsByTagName("head")[0];
+          var body = document.body || document.getElementsByTagName("body")[0];
+          window.rudderAnalyticsAddScript = function(url, extraAttributeKey, extraAttributeVal) {
+            var scriptTag = document.createElement("script");
+            scriptTag.src = url;
+            scriptTag.setAttribute("data-loader", "RS_JS_SDK");
+            if (extraAttributeKey && extraAttributeVal) {
+              scriptTag.setAttribute(extraAttributeKey, extraAttributeVal);
+            }
+            if (scriptLoadingMode === "async") {
+              scriptTag.async = true;
+            } else if (scriptLoadingMode === "defer") {
+              scriptTag.defer = true;
+            }
+            if (head) {
+              head.insertBefore(scriptTag, head.firstChild);
+            } else {
+              body.insertBefore(scriptTag, body.firstChild);
+            }
+          };
+          window.rudderAnalyticsMount = function() {
+            (function() {
+              if (typeof globalThis === "undefined") {
+                var getGlobal = function getGlobal() {
+                  if (typeof self !== "undefined") {
+                    return self;
+                  }
+                  if (typeof window !== "undefined") {
+                    return window;
+                  }
+                  return null;
+                };
+                var global = getGlobal();
+                if (global) {
+                  Object.defineProperty(global, "globalThis", {
+                    value: global,
+                    configurable: true
+                  });
+                }
+              }
+            })();
+            window.rudderAnalyticsAddScript("".concat(sdkBaseUrl, "/").concat(sdkVersion, "/").concat(window.rudderAnalyticsBuildType, "/").concat(sdkFileName), "data-rsa-write-key", "353xovqzzbqwpEcGp8GkMfqWvYP");
+          };
+          if (typeof Promise === "undefined" || typeof globalThis === "undefined") {
+            window.rudderAnalyticsAddScript("https://polyfill-fastly.io/v3/polyfill.min.js?version=3.111.0&features=Symbol%2CPromise&callback=rudderAnalyticsMount");
+          } else {
+            window.rudderAnalyticsMount();
+          }
+          var loadOptions = {};
+          rudderanalytics.load("WRITE_KEY", "DATA_PLANE_URL", loadOptions);
+        }
+      }
+    })();
+    </script>
+
+    <!-- End RudderStack Snippet -->
+    
+    <title>RudderStack in 5</title>
+</head>
+<body>
+    
+    <section>
+        <form id="email-form" action="submit" class="email-form">
+            <img src="https://uploads-ssl.webflow.com/5f29812d706beb2bf6f62f64/60c146f54f7efa85f37f621e_63515_Rudderstack_Logo%20refresh_Superside-03.svg" loading="lazy" width="214" alt="">
+            <h1>RudderStack in 5 minutes</h1>
+            <div class="email-field">
+                <img src="https://uploads-ssl.webflow.com/5f29812d706beb2bf6f62f64/5f29812d39ddb88db70ecc87_icon-mail.svg" alt="" class="icon-form-input-image">
+                <input type="email" name="email" id="email" placeholder="your@email.com" required>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Sign up for RudderStack!</button>
+            </div>
+        </form>        
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
